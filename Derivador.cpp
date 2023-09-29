@@ -4,13 +4,15 @@ Derivador::Derivador(){
 }
 
 Sinal* Derivador::processar(Sinal* sinalIN){
-    double *seqAnterior = sinalIN->getSequencia();
-    double *seqAtual;
-    int anterior = 0;
+    double *seqAnterior = new double [sinalIN->getComprimento()];
+    seqAnterior = sinalIN->getSequencia();
+    double *seqAtual = new double[sinalIN->getComprimento()];
+    int anterior = 0;  
 
     for(int i = 0; i < sinalIN->getComprimento(); i++){
         seqAtual[i] = seqAnterior[i] - anterior;
         anterior = seqAnterior[i];
+        cout << seqAtual[i] << endl;
     }
     
     Sinal* sinalOUT = new Sinal(seqAtual, sinalIN->getComprimento());
