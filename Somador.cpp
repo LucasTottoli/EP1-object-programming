@@ -4,6 +4,8 @@ Somador::Somador() {
 }
 
 Somador::~Somador() {
+    delete s1;
+    delete s2;
 }
 
 Sinal* Somador::processar(Sinal *sinalIN1, Sinal *sinalIN2) {
