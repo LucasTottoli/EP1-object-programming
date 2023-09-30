@@ -20,4 +20,5 @@ Sinal* Integrador::processar(Sinal* sinalIN){
 
 Integrador::~Integrador(){
      delete seqAnterior;
+     delete seqAnterior;
 }
