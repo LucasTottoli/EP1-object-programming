@@ -12,7 +12,6 @@ Sinal* Integrador::processar(Sinal* sinalIN){
     for(int i = 0; i < sinalIN->getComprimento(); i++){
         seqAtual[i] = seqAnterior[i] + anterior;
         anterior = seqAtual[i];
-        cout << seqAtual[i] << endl;
     }
 
     Sinal* sinalOUT = new Sinal(seqAtual, sinalIN->getComprimento());
