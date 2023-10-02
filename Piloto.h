@@ -2,6 +2,8 @@
 #define PILOTO_H
 
 #include "Sinal.h"
+#include "Integrador.h"
+#include "Amplificador.h"
 
 class Piloto {
 private:

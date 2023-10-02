@@ -19,7 +19,5 @@ Sinal* Derivador::processar(Sinal* sinalIN){
 }
 
 Derivador::~Derivador(){
-    delete seqAnterior;
-    delete seqAtual;
 }
 

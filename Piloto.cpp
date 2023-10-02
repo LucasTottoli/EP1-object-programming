@@ -1,6 +1,4 @@
 #include "Piloto.h"
-#include "Amplificador.h"
-#include "Integrador.h"
 
 Piloto::Piloto(double ganho){
     this->ganho = ganho;
