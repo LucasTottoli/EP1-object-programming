@@ -1,9 +1,1 @@
-#include <iostream>
-using namespace std;
-
-void menu();
-
-int main(){
-    menu();
-    return 0;
-}
+never giving up
