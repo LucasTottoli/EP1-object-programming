@@ -5,12 +5,14 @@ Amplificador::Amplificador(double ganho){
 }
 
 Sinal* Amplificador::processar(Sinal* sinalIN){
-    double *seq = sinalIN->getSequencia();
+    double *seqIN = sinalIN->getSequencia();
+    double *seqOUT = new double[sinalIN->getComprimento()];
+    
     
     for (int i = 0; i < sinalIN->getComprimento() ;i++){
-        seq[i] = seq[i]*ganho;
+        seqOUT[i] = seqIN[i]*ganho;
     }
-    Sinal* sinalOUT = new Sinal(seq, sinalIN->getComprimento());
+    Sinal* sinalOUT = new Sinal(seqOUT, sinalIN->getComprimento());
     
     return sinalOUT;
 }

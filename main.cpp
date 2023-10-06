@@ -1,8 +1,9 @@
 #include <iostream>
-
 using namespace std;
 
+void menu();
+
 int main(){
-    cout << "hello new world";
+    menu();
     return 0;
 }

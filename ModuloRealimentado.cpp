@@ -12,20 +12,19 @@ Sinal* ModuloRealimentado::processar(Sinal* sinalIN){
     Sinal* saidaInvertida = nullptr;
 
     double* sequenciaSaidaInvertida = new double[sinalIN->getComprimento()];    
-    const double vInicial = 0;
 
     Amplificador* inversor = new Amplificador(-1);
     Somador* sum = new Somador();
     Piloto* Pilot = new Piloto(ganho);
 
     sequenciaSaidaInvertida[0] = 0;
-    Sinal* diferenca = new Sinal(sinalIN->getSequencia(), 1);
+    diferenca = new Sinal(sinalIN->getSequencia(), 1);
     saida = Pilot->processar(diferenca);
     delete diferenca;
 
     for(int i = 1; i < sinalIN->getComprimento(); i++){
         inversor->processar(saida);
-        sequenciaSaidaInvertida[i] = saida->getSequencia()[i];
+        sequenciaSaidaInvertida[i] = inversor->processar(saida)->getSequencia()[i-1];
         saidaInvertida = new Sinal(sequenciaSaidaInvertida, i+1);
         diferenca = sum->processar(sinalIN, saidaInvertida);
         diferenca = new Sinal(diferenca->getSequencia(), i+1);
@@ -35,6 +34,7 @@ Sinal* ModuloRealimentado::processar(Sinal* sinalIN){
         delete diferenca;
     }
     delete[] sequenciaSaidaInvertida;
+
     return saida;
 }
 

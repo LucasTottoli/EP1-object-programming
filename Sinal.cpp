@@ -4,18 +4,16 @@
 Sinal::Sinal(double* sequencia, int comprimento){
     
     this->comprimento = comprimento;
-    this->sequencia = sequencia;
     guardasequencia = new double[comprimento];
 
     for(int i = 0; i < comprimento; i++){
         guardasequencia[i] = sequencia[i];
     }
-
+    this->sequencia = guardasequencia;
 }
 
 
 double* Sinal::getSequencia(){
-
     return sequencia;
 }
 
