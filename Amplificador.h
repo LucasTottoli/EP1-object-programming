@@ -1,4 +1,4 @@
-#ifndef AMPLIFICADOR_H
+#ifndef AMPLIFICADOR_H 
 #define AMPLIFICADOR_H
 
 #include "Sinal.h"

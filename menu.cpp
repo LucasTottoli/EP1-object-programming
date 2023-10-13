@@ -10,11 +10,11 @@
 using namespace std;
 
 Sinal* novoSinal(){
-    int entrada, tamanho = 60, C;
-    double inclinacao;
+    int entrada, tamanho = 60;
+    double inclinacao, C;
     double sequencia[tamanho] = {0};
 
-    cout << "Qual sinal voce gostaria de utilizar como entrada da sua simulacao?" << endl << "1) 5+3*cos(n*pi/8)" << endl 
+    cout << endl << "Qual sinal voce gostaria de utilizar como entrada da sua simulacao?" << endl << "1) 5+3*cos(n*pi/8)" << endl 
     << "2) constante" << endl << "3) rampa" << endl;
 
     cout << "Escolha: ";
@@ -26,7 +26,7 @@ Sinal* novoSinal(){
         }
     }
     else if(entrada == 2){
-        cout << "Qual o valor dessa constante?" << endl << "C = ";
+        cout << endl << "Qual o valor dessa constante?" << endl << "C = ";
         cin >> C;
         
         for(int i = 0; i < tamanho; i++){
@@ -34,7 +34,7 @@ Sinal* novoSinal(){
         }
     }
     else {
-        cout << "Qual a inclinacao dessa rampa?" << endl << "a = ";
+        cout << endl << "Qual a inclinacao dessa rampa?" << endl << "a = ";
         cin >> inclinacao;
 
         for(int i = 0; i < tamanho; i++){
@@ -52,14 +52,14 @@ void novaOperacao(Sinal* sinalIN){
 
     Sinal* sinalOUT = new Sinal(sinalIN->getSequencia(), sinalIN->getComprimento());
 
-    cout << "Qual operacao voce gostaria de fazer?" << endl;
+    cout << endl << "Qual operacao voce gostaria de fazer?" << endl;
     cout << "1) Amplificar" << endl << "2) Somar" << endl << "3) Derivar" << endl << "4) Integrar" << endl;
     cout << "Escolha: ";
     cin >> escolha;
 
     if(escolha == 1){
 
-        cout << "Qual o ganho dessa amplificacao?" << endl << "g = ";
+        cout << endl << "Qual o ganho dessa amplificacao?" << endl << "g = ";
         cin >> gain;
 
         Amplificador* Amplificator = new Amplificador(gain);
@@ -67,7 +67,7 @@ void novaOperacao(Sinal* sinalIN){
     }
     else if(escolha == 2){
         
-        cout << "Informe mais um sinal para ser somado." << endl;
+        cout << endl << "Informe mais um sinal para ser somado." << endl;
         Sinal* sinal2 = new Sinal(sinalIN->getSequencia(), sinalIN->getComprimento());
         sinal2 = novoSinal(); 
 
@@ -83,7 +83,7 @@ void novaOperacao(Sinal* sinalIN){
         sinalOUT = Integrator->processar(sinalIN);
     }
 
-    cout << "O que voce quer fazer agora?" << endl;
+    cout << endl << "O que voce quer fazer agora?" << endl;
     cout << "1) Realizar mais uma operacao no resultado" << endl << "2) Imprimir o resultado para terminar" << endl;
     cout << "Escolha: ";
     cin >> escolha;
@@ -111,7 +111,7 @@ void menu(){
     Sinal* sinalOUT = novoSinal();
 
     if(simulacao == 1){
-        cout << "Qual o ganho do acelerador" << endl << "g = ";
+        cout << endl << "Qual o ganho do acelerador?" << endl << "g = ";
         cin >> gain;
 
         ModuloRealimentado* PilotoAutomatico = new ModuloRealimentado(gain);
